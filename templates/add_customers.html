@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/add_customers.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+
+
+
+            <div class="header1-background" >
+                <h1>Fibronet Connection Management System</h1>
+            </div>
+            <div class="topnav" id="myTopnav">
+                <a href="#about">Home</a>
+                <a href="Dashboard">Dashboard</a>
+                <div class="dropdown">
+                    <button  class="dropbtn" >Lineworkers Management</button>
+                    <div class="dropdown-content">
+                        <a href="add_lineworkers">Add Lineworkers</a>
+                        <a href="lineworkers_details">Lineworkers Details</a>
+
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">Customers Management</button>
+                    <div class="dropdown-content">
+                        <a href="add_customers">Add Customers</a>
+                        <a href="customers_details">Customers Details</a>
+
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">Plans Management</button>
+                    <div class="dropdown-content">
+                        <a href="admin_plan_reg">New Plans</a>
+                        <a href="admin_plan_view">Current Plans</a>
+
+                    </div>
+                </div>
+
+                <a href="Password_window">Change Password</a>
+                <a href="Logout_Window">Logout</a>
+                <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+            </div>
+<br>
+<div class="container">
+  <h2>Account Details</h2><br>
+  <form action="cus_reg_submit" method="POST">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-25">
+        <label for="reg_id">Register_ID</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="reg_id" name="reg_id" placeholder="Enter Your id">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="cus_type">Customer Type</label>
+      </div>
+      <div class="col-75">
+        <select id="cus_type" name="cus_type">
+          <option value="individual">individual</option>
+          <option value="Corporate">Corporate</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="cus_type"> Pre/Postpaid Type</label>
+      </div>
+      <div class="col-75">
+        <select id="postpaid" name="postpaid">
+          <option value="select type">Select Type</option>
+          <option value="prepaid">prepaid</option>
+          <option value="postpaid">postpaid</option>
+        </select>
+      </div>
+    </div>
+    {% for i in plans %}
+    <div class="row">
+      <div class="col-25">
+        <label for="plan">Applied Plan</label>
+      </div>
+      <div class="col-75">
+        <select name="plan">
+          <option value="select type">Select Type</option>
+          <option value="{{i.Plan1}}">{{i.Plan1}}</option>
+          <option value="{{i.Plan2}}">{{i.Plan2}}</option>
+          <option value="{{i.Plan3}}">{{i.Plan3}}</option>
+          <option value="{{i.Plan4}}">{{i.Plan4}}</option>
+          <option value="{{i.Plan5}}">{{i.Plan5}}</option>
+          <option value="{{i.Plan6}}">{{i.Plan6}}</option>
+          <option value="{{i.Plan7}}">{{i.Plan7}}</option>
+
+        </select>
+      </div>
+    </div>
+    {% endfor %}
+    <div class="row">
+      <div class="col-25">
+        <label for="reg_date">Registered Date</label>
+      </div>
+      <div class="col-75">
+        <input type="date" id="reg_date" name="reg_date" placeholder="Enter Your Registered Date">
+      </div>
+    </div><br><br>
+
+
+    <h2>Customer Details</h2><br>
+    <div class="row">
+      <div class="col-25">
+        <label for="full_name">Full Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="full_name" name="full_name" placeholder="Enter Your Full Name">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="date_of_birth">Date of Birth</label>
+      </div>
+      <div class="col-75">
+        <input type="date" id="date_of_birth" name="date_of_birth" placeholder="Enter Date_of_Birth">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="address">Address</label>
+      </div>
+      <div class="col-75">
+        <textarea id="address" name="address" placeholder="Enter Your Address" style="height:200px"></textarea>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="email">Email</label>
+      </div>
+      <div class="col-75">
+        <input type="email" id="email" name="email" placeholder="Enter Your Email">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="mobile_no">Mobile No</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="mobile_no" name="mobile_no" placeholder="Enter Your Mobile No">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="user_name">User Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="user_name" name="user_name" placeholder="Enter User Name">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="password">Password</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="password" name="password" placeholder="Enter Password">
+      </div>
+    </div><br><br>
+
+
+
+    <h2>Customer Installation Address Details</h2><br>
+    <div class="row">
+      <div class="col-25">
+        <label for="house_no">House No</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="house_no" name="house_no" placeholder="Enter Your House No">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="village">Village/Colony Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="village" name="village" placeholder="Enter Vilage Name">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="city">City</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="city" name="city" placeholder="Enter Your City">
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-25">
+        <label for="state">State</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="state" name="state" placeholder="Enter State">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="district">District</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="district" name="district" placeholder="Enter District">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="main_locality">Main Locality</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="main_locality" name="main_locality" placeholder="Enter Main Locality">
+      </div>
+    </div>
+
+
+    <div class="row">
+      <input type="submit" onclick="alert()" value="add">
+    </div>
+  </form>
+</div><br>
+<div class="bottom">
+      <p>Copyright @ 2021 - All Rights Reserved - Broadband Connection Management System</p>
+</div>
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+function alert()
+{
+    alert("Successfully Added!")
+
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

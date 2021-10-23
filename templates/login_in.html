@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>Fibronet Login</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/login_in.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+<div style="background:#f2f2f2";>
+
+            <div class="header1-background" >
+                <h1>Fibronet Connection Management System</h1>
+            </div>
+            <div class="topnav" id="myTopnav" style="padding-left:150px;">
+                 <a href="#home" class="active" >Home</a>
+                    <a href="#news">About</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#login_in">Login</a>
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                 </a>
+            </div>
+
+
+             <br>
+
+            <h3 class="head">Login in to Your Account</h3>
+		<hr class="HR">
+	    <div class="ism">
+ 		 <form action="Login_Res" method="POST">
+                     {% csrf_token %}
+   		 <input type="text" id="user" name="user" placeholder="User Name..">
+    		 <input type="text" id="pswd" name="pswd" placeholder="Password..">
+    		 <select id="type" name="type">
+                        <option>Account Type as:</option>
+      			<option value="Admin">Admin</option>
+      			<option value="Lineworker">Lineworker</option>
+      			<option value="Customer">Customer</option>
+    		 </select>
+
+    		<input type="submit" value="Login">
+  		</form>
+                        {{error}}
+                        {{na}}
+	    </div>
+
+            <br><br>
+
+            <div class="bottom">
+                 <p>Copyright @ 2021 - All Rights Reserved - Broadband Connection Management System</p>
+            </div>
+
+
+
+
+
+
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+</body>
+</html>

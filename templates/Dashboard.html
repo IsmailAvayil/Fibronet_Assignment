@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>DASHBOARD PAGE</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/Dashboard.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+<div style="background-color:#f2f2f2">
+
+
+            <div class="header1-background" >
+                <h1>Fibronet Connection Management System</h1>
+            </div>
+            <div class="topnav" id="myTopnav">
+                <a href="Admin_page">Home</a>
+                <a href="Dashboard">Dashboard</a>
+                <div class="dropdown">
+                    <button  class="dropbtn" >Lineworkers Management</button>
+                    <div class="dropdown-content">
+                        <a href="add_lineworkers">Add Lineworkers</a>
+                        <a href="lineworkers_details">Lineworkers Details</a>
+
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">Customers Management</button>
+                    <div class="dropdown-content">
+                        <a href="add_customers">Add Customers</a>
+                        <a href="customers_details">Customers Details</a>
+
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">Plans Management</button>
+                    <div class="dropdown-content">
+                        <a href="admin_plan_reg">New Plans</a>
+                        <a href="admin_plan_view">Current Plans</a>
+                        
+                    </div>
+                </div>
+                
+                <a href="Password_window">Change Password</a>
+                <a href="Logout_Window">Logout</a>
+                <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+            </div>
+            
+	    <div class="container">
+		<h2>Fibronet Connection Management System Dashboard</h2>
+                <hr>
+    		<button type="submit" class="registerbtn"><b>Add Lineworkers</b> </button><br>
+    		<button type="submit" class="registerbtn"><b>Add Customers</b></button></b><br>
+    		<button type="submit" class="registerbtn"><b>Plans Details</b></button><br>
+    		<button type="submit" class="registerbtn"><b>Customers Details</b> </button><br>
+    		<button type="submit" class="registerbtn"><b>Lineworkers Details</b></button><br>
+    		<button type="submit" class="registerbtn"><b>Change Password</b></button><br>
+                <br><br>
+            </div>
+            <div class="bottom">
+                 <h5>Copyright @ 2021 - All Rights Reserved - Broadband Connection Management System</h5>
+            </div>
+
+             
+
+
+</div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

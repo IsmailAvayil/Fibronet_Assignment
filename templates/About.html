@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>Fibronet Connection  Management System</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/About.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+<div style="background-color:#f2f2f2">
+
+
+            <div class="header1-background" >
+                <h1>Fibronet Connection  Management System</h1>
+            </div>
+            <div class="topnav" id="myTopnav" style="padding-left:150px;">
+                 <a href="#home" class="active" >Home</a>
+                    <a href="About">About</a>
+                    <a href="#contact">Contact</a>
+                    <a href="login_in">Login</a>
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                 </a>
+            </div>
+
+            <div class="adv" style="heiht:300px;width:300px;margin-left:150px;">
+                <img src="{% static 'images/bsnl poste.jpeg' %}">
+            </div>
+            <div id="content" style="margin-left:150px;width:853px;background-color:red;">
+                     <h2>About Us </h2>
+                <p style="font-size:20px">The FIBRONET is one of the Franchise Management under the Bharat  sanchar Nigam(Bsnl) LTD.Our office is loated at tirur.  we Provide Telecom Services and Distribute the fastest  FTTH(Fiber to the home).Fiber Network is One of the Fastest Netwrok and provide Unlimited calling fecilities with Special offers of Tariff plans.our franchise is located at tirur,so applicant should be  Tirurian .we have different Plans of FTTH Connections.so if anybody wants FTTH connection ,immediately Contact us or come to the Bsnl Office in tirur with filling the register form below.      </p>
+            </div>
+             <br>
+
+            <div class="bottom">
+                 <h5>Copyright @ 2021 - All Rights Reserved - Broadband Connection Management System</h5>
+            </div>
+
+</div>
+
+
+
+
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+</body>
+</html>

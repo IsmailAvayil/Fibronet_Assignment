@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>customer_profile</title>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+        {% for i in cus %}
+
+		<table class="table table-hover table-responsive" border="1px">
+		    <thead>
+                <tr>
+                    <th colspan="6"><center>ACCOUNT DETAILS</center></th>
+                </tr>
+                        <tr>
+                            <th>Register ID</th>
+                            <th>Customer Type</th>
+                            <th>Using Plan</th>
+                            <th>Registered Date</th>
+                            <th>Pre/Postpaid</th>
+                            <th>Edit</th>
+                        </tr>
+		    </thead>
+		    <tbody>
+                        <tr>
+                            <td >{{i.Register_ID}}</td>
+                            <td>{{i.Customer_type}}</td>
+                            <td>{{i.Applied_plan}}</td>
+                            <td>{{i.Registration_date}}</td>
+                            <td>{{i.Pre_Postpaid_type}}</td>
+                            <td><button type="button" data-toggle="modal" data-target="#edit" data-uid="1" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></td>
+                        </tr>
+		    </tbody>
+		</table>
+        <br>
+        <table class="table table-hover table-responsive" style="background-color:yellow">
+		    <thead>
+                <tr>
+                    <th colspan="6"><center>{{i.Full_Name}} DETAILS</center></th>
+                </tr>
+                        <tr>
+                            <th>Full Name</th>
+                            <th>Date of Birth </th>
+                            <th>Address</th>
+                            <th>Email</th>
+                            <th>Mobile no</th>
+                            <th>Edit</th>
+                        </tr>
+		    </thead>
+		    <tbody>
+                        <tr >
+                            <td>{{i.Full_Name}}</td>
+                            <td>{{i.Date_of_Birth}}</td>
+                            <td>{{i.Address}}</td>
+                            <td>{{i.Email}}</td>
+                            <td>{{i.Mobile_no}}</td>
+
+                            <td><button type="button" data-toggle="modal" data-target="#edit" data-uid="1" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></td>
+                        </tr>
+		    </tbody>
+		</table>
+        <br>
+
+        <table class="table table-hover table-responsive">
+		    <thead>
+                <tr>
+                    <th colspan="7"><center>{{i.User_Name}} INSTALLATION ADDRESS DETAILS</center></th>
+                </tr>
+                        <tr>
+                            <th>House No </th>
+                            <th>Village/Colony Name</th>
+                            <th>City </th>
+                            <th>State</th>
+                            <th>District</th>
+                            <th>Main Locality </th>
+                            <th>view</th>
+                        </tr>
+		    </thead>
+		    <tbody>
+                        <tr >
+                            <td>{{i.H_no}}</td>
+                            <td>{{i.Village_Colony}}</td>
+                            <td>{{i.City}}</td>
+                            <td>{{i.State}}</td>
+                            <td>{{i.District}}</td>
+                            <td>{{i.Main_Locality}}</td>
+                            <td><button type="button" data-toggle="modal" data-target="#edit" data-uid="1" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></td>
+                        </tr>
+		    </tbody>
+            {% endfor %}
+		</table>
+    </div>
+</div>
+</body>
+</html>

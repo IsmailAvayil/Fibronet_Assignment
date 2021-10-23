@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <title>REQUEST FORM</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/request_form.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+<div>
+
+
+            <div class="header1-background" >
+                <h1>Fibronet Connection Management System</h1>
+            </div>
+            <div class="topnav" id="myTopnav">
+                <a href="Admin_page">Home</a>
+                <a href="Dashboard">Dashboard</a>
+                <div class="dropdown">
+                    <button  class="dropbtn" >Lineworkers</button>
+                    <div class="dropdown-content">
+                        <a href="add_lineworkers">Add Lineworkers</a>
+                        <a href="lineworkers_details">Lineworkers Details</a>
+
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">Customers</button>
+                    <div class="dropdown-content">
+                        <a href="add_customers">Add Customers</a>
+                        <a href="customers_details">Customers Details</a>
+
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">Plans</button>
+                    <div class="dropdown-content">
+                        <a href="admin_plan_reg">New Plans</a>
+                        <a href="admin_plan_view">Current Plans</a>
+
+                    </div>
+                </div>
+                <a href="complaints">Complaints</a>
+                <a href="request_form">Request</a>
+                <a href="Password_window">Settings</a>
+                <a href="Logout_Window">Logout</a>
+                <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+            </div>
+
+
+<h2 style="margin-left:150px">Complaint/Request Form</h2>
+<p style="margin-left:150px">Resize the browser window to see the effect. When the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other.</p>
+<div class="container" style="margin-left: 150px;width: 600px;">
+    <form action="requst_res" method="POST">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-75">
+                <input type="text" placeholder="register_id" name="register_id" >
+            </div>
+            <div class="col-20" style="margin-left:20px;">
+                <input type="submit" value="Search">
+            </div>
+        </div>
+    </form>
+</div><br>
+
+<div class="container" style="margin-left: 150px;width: 600px;">
+    {% for i in cus %}
+  <form action="request_submit" method="POST" >
+      {% csrf_token %}
+    <div class="row">
+        <div class="col-25">
+          <label>Full Name</label>
+        </div>
+        <div class="col-75">
+          <input type="text"   value="{{i.Full_Name}}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+          <label>Address</label>
+        </div>
+        <div class="col-75">
+          <textarea style="height:200px">{{i.Address}}</textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+          <label>Complaint/Request</label>
+        </div>
+        <div class="col-75">
+          <textarea style="height:200px" name="txt"></textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-25">
+          <label>Mobile No</label>
+        </div>
+        <div class="col-75">
+          <input type="text"  value="{{i.Mobile_no}}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+          <label>Customer Type</label>
+        </div>
+        <div class="col-75">
+          <input type="text" value="{{i.Customer_type}}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+          <label>Using Plan</label>
+        </div>
+        <div class="col-75">
+          <input type="text" value="{{i.Applied_plan}}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+          <label >House No</label>
+        </div>
+        <div class="col-75">
+            <input type="text" value="{{i.H_no}}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+            <label >City</label>
+        </div>
+        <div class="col-75">
+            <input type="text" value="{{i.City}}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+            <label >Village</label>
+        </div>
+        <div class="col-75">
+            <input type="text" value="{{i.Village_Colony}}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+          <label >Main Locality</label>
+        </div>
+        <div class="col-75">
+          <input type="text" value="{{i.Main_Locality}}">
+        </div>
+    </div>
+    <div class="row">
+        <input type="submit" value="Submit">
+      </div>
+      <input type="hidden" value="{{i.id}}" name="id">
+      {% endfor %}
+  </form>
+</div><br>
+
+
+            <div class="bottom">
+                 <p>Copyright @ 2021 - All Rights Reserved - Broadband Connection Management System</p>
+            </div>
+
+
+</div>
+
+
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+

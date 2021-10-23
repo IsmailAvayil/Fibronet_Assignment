@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ADMIN PLANS UPDATE</title>
+</head>
+<body>
+<div class="container" style="width:35%" >
+    <table border="1px solid" >
+        <form action="admin_plan_updated_res" method="POST">
+            {% csrf_token %}
+
+            <thead>
+            <tr>
+                <th colspan="2">BSNL Kerala Bharath Fibre<br> Popular Plans</th>
+            </tr>
+            </thead>
+            {% for i in plans %}
+            <tbody>
+            <tr>
+                <th style="background-color:#17a2b8;color:white"><input type="text" value="{{i.Plan1}}" name="pln1" > </th>
+                <td style="background-color:yellow"><input type="text" value="{{i.Plan1_Det}} " name="plndet1" > </td>
+            </tr>
+            <tr>
+                <th style="background-color:#17a2b8;color:white"><input type="text" value="{{i.Plan2}}" name="pln2" > </th>
+                <td style="background-color:yellow"><input type="text" value="{{i.Plan2_Det}} " name="plndet2" > </td>
+            </tr>
+            <tr>
+                <th style="background-color:#17a2b8;color:white"><input type="text" value="{{i.Plan3}}" name="pln3" > </th>
+                <td style="background-color:yellow"><input type="text" value="{{i.Plan3_Det}} " name="plndet3" > </td>
+            </tr>
+            <tr>
+                <th style="background-color:#17a2b8;color:white"><input type="text" value="{{i.Plan4}}" name="pln4" > </th>
+                <td style="background-color:yellow"><input type="text" value="{{i.Plan4_Det}} " name="plndet4" > </td>
+            </tr>
+            <tr>
+                <th style="background-color:#17a2b8;color:white"><input type="text" value="{{i.Plan5}}" name="pln5" > </th>
+                <td style="background-color:yellow"><input type="text" value="{{i.Plan5_Det}} " name="plndet5" > </td>
+            </tr>
+            <tr>
+                <th style="background-color:#17a2b8;color:white"><input type="text" value="{{i.Plan6}}" name="pln6" > </th>
+                <td style="background-color:yellow"><input type="text" value="{{i.Plan6_Det}} " name="plndet6" > </td>
+            </tr>
+            <tr>
+                <th style="background-color:#17a2b8;color:white"><input type="text" value="{{i.Plan7}}" name="pln7" > </th>
+                <td style="background-color:yellow"><input type="text" value="{{i.Plan7_Det}} " name="plndet7" > </td>
+            </tr>
+
+            <tr>
+                <input type="hidden" value="{{i.id}}" name="id">
+                {% endfor %}
+                <td colspan="2" align="center"> <input style="width:20%"  type="submit" value="save" ></td>
+
+            </tr>
+            </tbody>
+
+        </form>
+    </table>
+</div>
+
+</body>
+</html>

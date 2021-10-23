@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/add_lineworkers.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+
+
+
+            <div class="header1-background" >
+                <h1>Fibronet Connection Management System</h1>
+            </div>
+            <div class="topnav" id="myTopnav">
+                <a href="#about">Home</a>
+                <a href="Dashboard">Dashboard</a>
+                <div class="dropdown">
+                    <button  class="dropbtn" >Lineworkers Management</button>
+                    <div class="dropdown-content">
+                        <a href="add_lineworkers">Add Lineworkers</a>
+                        <a href="lineworkers_details">Lineworkers Details</a>
+
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">Customers Management</button>
+                    <div class="dropdown-content">
+                        <a href="add_customers">Add Customers</a>
+                        <a href="customers_details">Customers Details</a>
+
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">Plans Management</button>
+                    <div class="dropdown-content">
+                        <a href="admin_plan_reg">New Plans</a>
+                        <a href="admin_plan_view">Current Plans</a>
+
+                    </div>
+                </div>
+
+                <a href="Password_window">Change Password</a>
+                <a href="Logout_Window">Logout</a>
+                <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+            </div>
+<br>
+<div class="container">
+  <h2>Lineworker Registration Form</h2><br>
+  <form action="line_reg_submit" method="POST">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-25">
+        <label for="lineworker_id">Lineworker ID</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lineworker_id" name="lineworker_id" placeholder="Enter Your id">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="full_name">Full Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="full_name" name="full_name" placeholder="Your full name">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="age">Age</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="age" name="age" placeholder="Enter Your Age">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="address">Address</label>
+      </div>
+      <div class="col-75">
+        <textarea id="address" name="address" placeholder="Enter Your Address" style="height:200px"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="email">Email</label>
+      </div>
+      <div class="col-75">
+        <input type="email" id="email" name="email" placeholder="Enter Your Email">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="mobile_no">Mobile No</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="mobile_no" name="mobile_no" placeholder="Enter Your MObile No">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="user_name">User Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="user_name" name="user_name" placeholder="Enter User Name">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="password">Password</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="password" name="password" placeholder="Enter Password">
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" onclick="alertbox()" value="add">
+    </div>
+  </form>
+</div><br>
+<div class="bottom">
+      <p>Copyright @ 2021 - All Rights Reserved - Broadband Connection Management System</p>
+</div>
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+
+function alertbox()
+{
+    alert("Successfully Added!")
+
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

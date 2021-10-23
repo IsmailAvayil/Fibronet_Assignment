@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>REQUEST SUBMIT</title>
+</head>
+<body>
+ {% for i in cus %}
+
+	 <table  border="1px">
+		    <thead>
+                <tr>
+                    <th colspan="2"><center>ACCOUNT DETAILS</center></th>
+                </tr>
+                        <tr>
+                            <th>Customer Type</th>
+                            <th>Using Plan</th>
+
+                        </tr>
+		    </thead>
+		    <tbody>
+                        <tr>
+                            <td>{{i.Customer_type}}</td>
+                            <td>{{i.Applied_plan}}</td>
+                        </tr>
+		    </tbody>
+		</table >
+        <br>
+        <table border="1px solid">
+		    <thead>
+                <tr>
+                    <th colspan="4"><center>{{i.Full_Name}} DETAILS</center></th>
+                </tr>
+                        <tr>
+                            <th>Full Name</th>
+                            <th>Address</th>
+                            <th>Mobile no</th>
+
+                        </tr>
+		    </thead>
+		    <tbody>
+                        <tr >
+                            <td>{{i.Full_Name}}</td>
+                            <td>{{i.Address}}</td>
+                            <td>{{i.Mobile_no}}</td>
+
+                        </tr>
+		    </tbody>
+		</table>
+        <br>
+
+        <table border="1px solid">
+		    <thead>
+                <tr>
+                    <th colspan="6"><center>{{i.User_Name}} INSTALLATION ADDRESS DETAILS</center></th>
+                </tr>
+                        <tr>
+                            <th>House No </th>
+                            <th>Village/Colony Name</th>
+                            <th>City </th>
+                            <th>State</th>
+                            <th>District</th>
+                            <th>Main Locality </th>
+
+                        </tr>
+		    </thead>
+		    <tbody>
+                        <tr >
+                            <td>{{i.H_no}}</td>
+                            <td>{{i.Village_Colony}}</td>
+                            <td>{{i.City}}</td>
+                            <td>{{i.State}}</td>
+                            <td>{{i.District}}</td>
+                            <td>{{i.Main_Locality}}</td>
+
+                        </tr>
+		    </tbody>
+
+		</table>
+<h5>Please make it ready soon</h5>
+
+    <input type="submit" value="Submit">
+        {% endfor %}
+</form>
+</body>
+</html>
